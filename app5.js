@@ -15,7 +15,7 @@ let station = [
 
 app.get("/keiyo", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
-  res.render('db1', { data: station });
+  res.render('db2', { data: station });
 });
 
 app.get("/keiyo_add", (req, res) => {
@@ -25,6 +25,31 @@ app.get("/keiyo_add", (req, res) => {
   let newdata = { id: id, code: code, name: name };
   station.push( newdata );
   res.redirect('/public/keiyo_add.html');
+});
+
+let combat_plane = [
+  { country:"America", model:"F-4", name:"ファントムⅡ" },
+  { country:"America", model:"F-14", name:"トムキャット" },
+  { country:"America", model:"F-15", name:"イーグル" },
+  { country:"America", model:"F-16", name:"ファイティングファルコン" },
+  { country:"America", model:"F/A-18", name:"ホーネット" },
+  { country:"America", model:"F/A-18E/F", name:"スーパーホーネット" },
+  { country:"America", model:"F-22", name:"ラプター" },
+  { country:"America", model:"F-35", name:"ライトニングⅡ" },
+];
+
+app.get("/combat", (req, res) => {
+  // 本来ならここにDBとのやり取りが入る
+  res.render('db3', { data: combat_plane });
+});
+
+app.get("/combat_add", (req, res) => {
+  let country = req.query.country;
+  let model = req.query.model;
+  let name = req.query.name;
+  let newdata = { country: country, model: model, name: name };
+  combat_plane.push( newdata );
+  res.redirect('/public/combat_add.html');
 });
 
 app.get("/hello1", (req, res) => {

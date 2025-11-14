@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>戦闘機追加</title>
+    <style>
+        h1{font-size: 30px;text-align: center;}
+        form{width: 50%;margin: auto;}
+        p{font-size:20px;margin:20px;text-align:center;}
+    </style>
+</head>
+<body>
+    <h1>知っている戦闘機を追加しよう!!!</h1>
+    <form action="/combat_add">
+        <label for="country">国名</label>
+        <input type="text" name="country" id="country" required>
+
+        <label for="model">型式</label>
+        <input type="text" name="model" id="model" required>
+
+        <label for="name">名称</label>
+        <input type="text" name="name" id="name" required>
+
+        <input type="submit" values="登録">
+    </form>
+    <p><a href="/combat">戦闘機一覧</a></p>
+</body>
+</html>

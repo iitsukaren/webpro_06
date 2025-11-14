@@ -1,0 +1,32 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>戦闘機一覧</title>
+  <style>
+    h2{font-size: 30px;text-align: center;}
+    table{width: 50%;margin: auto;}
+  </style>
+</head>
+<body>
+  <h2>世界の戦闘機</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>国名</th>
+        <th>型式</th>
+        <th>名称</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for( let row of data ) { %>
+        <tr>
+          <td><%= row.country %></td>
+          <td><%= row.model %></td>
+          <td><%= row.name %></td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</body>
+</html>
