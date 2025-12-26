@@ -35,11 +35,3 @@ JSファイルの先頭にuse strictをつける
 利用者向けの仕様書…1番気に入っているシステムの使い方の1枚で良い
 管理者向けの仕様書…システムの使い方を示した1枚で良い
 開発者向けの仕様書…3つのシステム全ての物が必要
-
-### トークンパスワード
-Webpro_practice_2025_RexITKA
-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
-
-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
-
-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
