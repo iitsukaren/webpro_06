@@ -1,0 +1,22 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %>のデータ削除の確認</title>
+  <style>
+    h1{font-size: 30px;margin: 10px;text-align: center;}
+    p{font-size: 20px;margin: 10px;text-align: center;}
+    span{font-size: 20px;margin: 10px;text-align: center;color: red;}
+    a{font-size: 20px;margin: 10px;text-align: center;}
+  </style>
+</head>
+<body>
+  <h1><%= data.name %>を削除しますか</h1>
+  <p>データを削除したい場合は以下の<span>削除するボタン</span>を押し，したくない場合は<span>キャンセルする</span>と書かれたリンクを押してください．</p>
+  <p>キャンセルするのリンクを押すと駅の一覧ページに遷移します．</p>
+
+  <form action="/keiyo2/delete/<%= id %>" method="POST">
+    <button type="submit">削除する</button>
+  </form>
+  <a href="/keiyo2/<%= id %>">キャンセルする</a>
+</body>

@@ -1,3 +1,4 @@
+"use strict";
 const express = require("express");
 const app = express();
 
@@ -15,7 +16,6 @@ let station = [
 ];
 
 app.get("/keiyo", (req, res) => {
-  // 本来ならここにDBとのやり取りが入る
   res.render('db2', { data: station });
 });
 
@@ -39,7 +39,6 @@ let station2 = [
 ];
 
 app.get("/keiyo2", (req, res) => {
-  // 本来ならここにDBとのやり取りが入る
   res.render('keiyo2', {data: station2} );
 });
 
@@ -48,17 +47,30 @@ app.get("/keiyo2/create", (req, res) => {
 });
 
 app.get("/keiyo2/:number", (req, res) => {
-  // 本来ならここにDBとのやり取りが入る
   const number = req.params.number;
   const detail = station2[ number ];
-  res.render('keiyo2_detail', {id: number, data: detail} );
+  if (detail) {
+    res.render('keiyo2_detail', {id: number, data: detail} );
+  } else {
+    res.render('keiyo2_notfound', {id: number});
+  }
 });
 
 app.get("/keiyo2/delete/:number", (req, res) => {
-  // 本来は削除の確認ページを表示する
-  // 本来は削除する番号が存在するか厳重にチェックする
-  // 本来ならここにDBとのやり取りが入る
-  station2.splice( req.params.number, 1 );
+  const number = req.params.number;
+  const detail = station2[ number ];
+  if (detail) {
+    res.render('keiyo2_delete', { id: number, data: detail });
+  } else {
+    res.render('keiyo2_notfound', {id: number});
+  }
+});
+
+app.post("/keiyo2/delete/:number", (req, res) => {
+  const number = req.params.number;
+  if (station2[number]) {
+    station2.splice(number, 1);
+  }
   res.redirect('/keiyo2' );
 });
 
@@ -71,12 +83,11 @@ app.get("/keiyo2_add", (req, res) => {
   let distance = req.query.distance;
   let newdata = { id: id, code: code, name: name, change: change, 
                   passengers: passengers, distance: distance };
-  station.push( newdata );
+  station2.push( newdata );
   res.redirect('/public/keiyo2_add.html');
 });
 
 app.post("/keiyo2", (req, res) => {
-  // 本来ならここにDBとのやり取りが入る
   const id = station2.length + 1;
   const code = req.body.code;
   const name = req.body.name;
@@ -89,15 +100,12 @@ app.post("/keiyo2", (req, res) => {
 });
 
 app.get("/keiyo2/edit/:number", (req, res) => {
-  // 本来ならここにDBとのやり取りが入る
   const number = req.params.number;
   const detail = station2[ number ];
   res.render('keiyo2_edit', {id: number, data: detail} );
 });
 
 app.post("/keiyo2/update/:number", (req, res) => {
-  // 本来は変更する番号が存在するか，各項目が正しいか厳重にチェックする
-  // 本来ならここにDBとのやり取りが入る
   station2[req.params.number].code = req.body.code;
   station2[req.params.number].name = req.body.name;
   station2[req.params.number].change = req.body.change;
@@ -119,7 +127,6 @@ let combat_plane = [
 ];
 
 app.get("/combat", (req, res) => {
-  // 本来ならここにDBとのやり取りが入る
   res.render('db3', { data: combat_plane });
 });
 
@@ -146,95 +153,6 @@ app.get("/icon", (req, res) => {
   res.render('icon', { filename:"./public/Apple_logo_black.svg", alt:"Apple Logo"});
 });
 
-app.get("/", (req, res) => {
-  const message = "運試しができるよー";
-  res.render('link', { message:message});
-});
-
-app.get("/omikuji1", (req, res) => {
-  const num = Math.floor( Math.random() * 6 + 1 );
-  let luck = '';
-  if( num==1 ) luck = '大吉';
-  else if( num==2 ) luck = '中吉';
-  else if( num==3 ) luck = '小吉';
-  else if( num==4 ) luck = '末吉';
-  else if( num==5 ) luck = '凶';
-  else if( num==6 ) luck = '大凶';
-
-  res.send( '今日の運勢は' + luck + 'です' );
-});
-
-app.get("/omikuji2", (req, res) => {
-  const num = Math.floor( Math.random() * 6 + 1 );
-  let luck = '';
-  if( num==1 ) luck = '大吉';
-  else if( num==2 ) luck = '中吉';
-  else if( num==3 ) luck = '小吉';
-  else if( num==4 ) luck = '末吉';
-  else if( num==5 ) luck = '凶';
-  else if( num==6 ) luck = '大凶';
-  res.render( 'omikuji2', {result:luck} );
-});
-
-app.get("/omikuji3",(req,res)=>{
-  const num =Math.floor(Math.random()*6+1);
-  let luck ="";
-  let comment ="";
-  if( num==1 ){
-    luck = '大吉';
-    comment = "絶好調";
-  }
-  else if( num==2 ){
-    luck = '中吉';
-    comment = "好調";
-  }
-  else if( num==3 ){
-    luck = '小吉';
-    comment = "やや好調";
-  }
-  else if( num==4 ){
-    luck = '末吉';
-    comment = "やや不調";
-  }
-  else if( num==5 ){
-    luck = '凶';
-    comment = "不調";
-  }
-  else if( num==6 ){
-    luck = '大凶';
-    comment = "絶不調";
-  }
-  res.render("omikuji3",{result:luck,comment:comment});
-})
-
-app.get("/narabi",(req,res)=>{
-  const words=[];
-  for(i=0;i<10;i++){
-    let array=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-    let choice=Math.floor(Math.random()*26+1);
-    let get=array.splice(choice,1);
-    words.push(get);
-  }
-  let display=words.join("")
-  res.render("narabi",{wordphrase:display});
-})
-
-app.get("/hand",(req,res)=>{
-  const num =Math.floor(Math.random()*3+1);
-  let hand="";
-  if(num==1){
-    hand="グー"
-  }
-  else if(num==2){
-    hand="チョキ"
-  }
-  else if(num==3){
-    hand="パー"
-  }
-  
-  res.render("hand",{hand:hand});
-})
-
 app.get("/janken", (req, res) => {
   let hand = req.query.hand;
   let win = Number( req.query.win );
@@ -246,9 +164,6 @@ app.get("/janken", (req, res) => {
   if( num==1 ) cpu = 'グー';
   else if( num==2 ) cpu = 'チョキ';
   else if( num==3 )cpu = 'パー';
-  // ここに勝敗の判定を入れる
-  // 以下の数行は人間の勝ちの場合の処理なので，
-  // 判定に沿ってあいこと負けの処理を追加する
   if(hand===cpu){
     judgement = 'あいこ';
     win += 0;
@@ -286,9 +201,6 @@ app.get("/janken2", (req, res) => {
   if( num==1 ) cpu = 'グー';
   else if( num==2 ) cpu = 'チョキ';
   else if( num==3 )cpu = 'パー';
-  // ここに勝敗の判定を入れる
-  // 以下の数行は人間の勝ちの場合の処理なので，
-  // 判定に沿ってあいこと負けの処理を追加する
   if(hand == num){
     judgement = 'あいこ';
     win += 0;
