@@ -1,0 +1,61 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.modelname %></title>
+  <link rel="stylesheet" href="./../../public/style/shipstyle.css">
+</head>
+<body>
+  <h1><%= data.modelname %>の編集</h1>
+  <hr>
+  <form action="/update/<%= data.id - 1 %>" method="POST">
+    <table>
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>データ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>型・級</th>
+          <td><input type="text" name="modelname" value="<%= data.modelname %>"></td>
+        </tr>
+        <tr>
+          <th>分類</th>
+          <td><input type="text" name="shipclass" value="<%= data.shipclass %>"></td>
+        </tr>
+        <tr>
+          <th>建造国</th>
+          <td><input type="text" name="country" value="<%= data.country %>"></td>
+        </tr>
+        <tr>
+          <th>全長(メートル単位)</th>
+          <td><input type="text" name="length" value="<%= data.length %>"></td>
+        </tr>
+        <tr>
+          <th>排水量(トン単位)</th>
+          <td><input type="text" name="displacement" value="<%= data.displacement %>"></td>
+        </tr>
+        <tr>
+          <th>運用開始年</th>
+          <td><input type="text" name="startyear" value="<%= data.startyear %>"></td>
+        </tr>
+        <tr>
+          <th>建造数</th>
+          <td><input type="text" name="sister" value="<%= data.sister %>"></td>
+        </tr>
+        <tr>
+          <th>画像ファイル名</th>
+          <td><input type="text" name="image" value="<%= data.image %>"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="submitlinkbox">
+      <input type="submit" value="<%= data.modelname %>の更新">
+      <input type="reset" value="リセット">
+      <a href="/<%= id %>" class="mainmenu"><%= data.modelname %>の詳細に戻る</a>
+    </div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.modelname %></title>
+  <link rel="stylesheet" href="./../public/style/airstyle.css">
+</head>
+<body>
+  <h1><%= data.modelname %>の詳細</h1>
+  <hr>
+  <div class="image">
+    <% if (data.image) { %>
+        <img src="./../public/image/<%= data.image %>" alt="<%= data.modelname %>の画像">
+    <% } else { %>
+        <p>No Image</p>
+    <% } %>
+  </div>
+  <table>
+    <thead>
+        <tr>
+            <th>項目</th>
+            <th>データ</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>ID</th>
+            <td><%= data.id %></td>
+        </tr>
+        <tr>
+            <th>型式・愛称</th>
+            <td><%= data.modelname %></td>
+        </tr>
+        <tr>
+            <th>分類</th>
+            <td><%= data.airclass %></td>
+        </tr>
+        <tr>
+            <th>設計・製造社</th>
+            <td><%= data.manufacturer %></td>
+        </tr>
+        <tr>
+            <th>製造国名</th>
+            <td><%= data.country %></td>
+        </tr>
+        <tr>
+            <th>運用開始年</th>
+            <td><%= data.startyear %></td>
+        </tr>
+    </tbody>
+  </table>
+  <div class="submitlinkbox">
+    <a href="/edit/<%= id %>" class="edit"><%= data.modelname %>の編集</a>
+    <a href="/delete/<%= id %>" class="delete"><%= data.modelname %>の削除</a>
+    <a href="/" class="mainmenu">軍用機一覧に戻る</a>
+  </div>
+</body>
+</html>

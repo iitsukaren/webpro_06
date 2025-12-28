@@ -26,15 +26,15 @@ id...id
 どのような機能のページ化は文で記述し，表示させる際のリソース名は括弧内に記述する
 ```mermaid
 stateDiagram-v2
-    [*] --> データの一覧表示(/combat)
-    データの一覧表示(/combat) --> データの詳細表示(/combat/number): 型式を押すことで詳細に飛ぶ
-    データの詳細表示(/combat/number) --> データの編集(/combat/edit/number): 詳細表示ページの編集リンクから飛ぶ
-    データの詳細表示(/combat/number) --> データの削除(/combat/delete/number): 一覧表示ページ内の削除リンクから飛ぶ
-    データの一覧表示(/combat) --> データの追加(/combat/add): 一覧表示ページ内の追加リンクから飛ぶ
-    データの編集(/combat/edit/number) --> データの変更
-    データの削除(/combat/delete/number) --> データの変更
-    データの追加(/combat/add) --> データの変更
-    データの変更 --> データの一覧表示(/combat): データを変更するとredirectでデータの一覧表示ページに遷移する
+    [*] --> データの一覧表示(/main)
+    データの一覧表示(/main) --> データの詳細表示(/main/number): 型式を押すことで詳細に飛ぶ
+    データの詳細表示(/main/number) --> データの編集(/main/edit/number): 詳細表示ページの編集リンクから飛ぶ
+    データの詳細表示(/main/number) --> データの削除(/main/delete/number): 詳細表示ページ内の削除リンクから飛ぶ
+    データの一覧表示(/main) --> データの追加(/main/create): 一覧表示ページ内の追加リンクから飛ぶ
+    データの編集(/main/edit/number) --> データの変更
+    データの削除(/main/delete/number) --> データの変更
+    データの追加(/main/create) --> データの変更
+    データの変更 --> データの一覧表示(/main): データを変更するとredirectでデータの一覧表示ページに遷移する
 ```
 
 #### ページごとの使用するメゾット

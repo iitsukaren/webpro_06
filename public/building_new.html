@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新規高層建築物の登録</title>
+    <link rel="stylesheet" href="./style/airstyle.css">
+</head>
+<body>
+    <h1>高層建築物新規データ登録</h1>
+    <p>基本的に記入例に従って記述すること</p>
+    <p>画像ファイル名を正確に記述すること(画像名が異なると画像が表示されません)</p>
+    <hr>
+    <form action="/" method="POST">
+        <table>
+            <tr>
+                <th>名称</th>
+                <td><input type="text" name="name" placeholder="例: 東京スカイツリー"><br></td>
+            </tr>
+            <tr>
+                <th>分類</th>
+                <td><input type="text" name="type" placeholder="例: 自立電波塔"><br></td>
+            </tr>
+            <tr>
+                <th>所在国・都市</th>
+                <td><input type="text" name="countrycity" placeholder="例: 日本・東京"><br></td>
+            </tr>
+            <tr>
+                <th>高さ(メートル単位)</th>
+                <td><input type="text" name="height" placeholder="例: 634"><br></td>
+            </tr>
+            <tr>
+                <th>延べ床面積(平方メートル単位)</th>
+                <td><input type="text" name="floorarea" placeholder="例: 229,728"><br></td>
+            </tr>
+            <tr>
+                <th>竣工年</th>
+                <td><input type="text" name="completion" placeholder="例: 2012"><br></td>
+            </tr>
+            <tr>
+                <th>画像ファイル名</th>
+                <td><input type="text" name="image" placeholder="例: skytree.jpg"><br></td>
+            </tr>
+        </table>
+        <div class="submitlinkbox">
+            <input type="submit" value="高層建築物データの登録">
+            <input type="reset" value="リセット">
+            <a href="/" class="mainmenu">高層建築物一覧に戻る</a>
+        </div>
+    </form>
+</body>
+</html>

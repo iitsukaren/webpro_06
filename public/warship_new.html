@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新規軍艦の登録</title>
+    <link rel="stylesheet" href="./style/shipstyle.css">
+</head>
+<body>
+    <h1>軍艦新規データ登録</h1>
+    <p>基本的に記入例に従って記述すること</p>
+    <p>画像ファイル名を正確に記述すること(画像名が異なると画像が表示されません)</p>
+    <hr>
+    <form action="/" method="POST">
+        <table>
+            <tr>
+                <th>型・級</th>
+                <td><input type="text" name="modelname" placeholder="例: いずも型護衛艦"><br></td>
+            </tr>
+            <tr>
+                <th>分類</th>
+                <td><input type="text" name="shipclass" placeholder="例: ヘリコプター搭載型護衛艦→多目的空母？"><br></td>
+            </tr>
+            <tr>
+                <th>建造国</th>
+                <td><input type="text" name="country" placeholder="例: 日本"><br></td>
+            </tr>
+            <tr>
+                <th>全長(メートル単位)</th>
+                <td><input type="text" name="length" placeholder="例: 248.0"><br></td>
+            </tr>
+            <tr>
+                <th>排水量(トン単位)</th>
+                <td><input type="text" name="displacement" placeholder="例: 基準19,500(満載26,000)"><br></td>
+            </tr>
+            <tr>
+                <th>運用開始年</th>
+                <td><input type="text" name="startyear" placeholder="例: 2015"><br></td>
+            </tr>
+            <tr>
+                <th>建造数</th>
+                <td><input type="text" name="sister" placeholder="例: 2(現役2隻)"><br></td>
+            </tr>
+            <tr>
+                <th>画像ファイル名</th>
+                <td><input type="text" name="image" placeholder="例: F-14.jpg"><br></td>
+            </tr>
+        </table>
+        <div class="submitlinkbox">
+            <input type="submit" value="軍艦データの登録">
+            <input type="reset" value="リセット">
+            <a href="/" class="mainmenu">軍艦一覧に戻る</a>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新規軍用機の登録</title>
+    <link rel="stylesheet" href="./style/airstyle.css">
+</head>
+<body>
+    <h1>軍用機新規データ登録</h1>
+    <p>基本的に英数字のみ使用すること(漢字を使わないといけない時はその限りではない)</p>
+    <p>画像ファイル名を正確に記述すること(画像名が異なると画像が表示されません)</p>
+    <hr>
+    <form action="/" method="POST">
+        <table>
+            <tr>
+                <th>型式・愛称</th>
+                <td><input type="text" name="modelname" placeholder="例: F-14:Tomcat"><br></td>
+            </tr>
+            <tr>
+                <th>分類</th>
+                <td><input type="text" name="airclass" placeholder="例: Fighter"><br></td>
+            </tr>
+            <tr>
+                <th>設計・製造社</th>
+                <td><input type="text" name="manufacturer" placeholder="例: Grumman"><br></td>
+            </tr>
+            <tr>
+                <th>製造国名</th>
+                <td><input type="text" name="country" placeholder="例: America"><br></td>
+            </tr>
+            <tr>
+                <th>運用開始年</th>
+                <td><input type="text" name="startyear" placeholder="例: 1974"><br></td>
+            </tr>
+            <tr>
+                <th>画像ファイル名</th>
+                <td><input type="text" name="image" placeholder="例: F-14.jpg"><br></td>
+            </tr>
+        </table>
+        <div class="submitlinkbox">
+            <input type="submit" value="軍用機データの登録">
+            <input type="reset" value="リセット">
+            <a href="/" class="mainmenu">軍用機一覧に戻る</a>
+        </div>
+    </form>
+</body>
+</html>

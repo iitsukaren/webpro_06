@@ -1,0 +1,62 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %></title>
+  <link rel="stylesheet" href="./../public/style/buildstyle.css">
+</head>
+<body>
+  <h1><%= data.name %>の詳細</h1>
+  <hr>
+  <div class="image">
+    <% if (data.image) { %>
+        <img src="./../public/image/<%= data.image %>" alt="<%= data.name %>の画像">
+    <% } else { %>
+        <p>No Image</p>
+    <% } %>
+  </div>
+  <table>
+    <thead>
+        <tr>
+            <th>項目</th>
+            <th>データ</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>ID</th>
+            <td><%= data.id %></td>
+        </tr>
+        <tr>
+            <th>名称</th>
+            <td><%= data.name %></td>
+        </tr>
+        <tr>
+            <th>分類</th>
+            <td><%= data.type %></td>
+        </tr>
+        <tr>
+            <th>所在国・都市</th>
+            <td><%= data.countrycity %></td>
+        </tr>
+        <tr>
+            <th>高さ(メートル単位)</th>
+            <td><%= data.height %></td>
+        </tr>
+        <tr>
+            <th>延べ床面積(平方メートル単位)</th>
+            <td><%= data.floorarea %></td>
+        </tr>
+        <tr>
+            <th>竣工年</th>
+            <td><%= data.completion %></td>
+        </tr>
+    </tbody>
+  </table>
+  <div class="submitlinkbox">
+    <a href="/edit/<%= id %>" class="edit"><%= data.name %>の編集</a>
+    <a href="/delete/<%= id %>" class="delete"><%= data.name %>の削除</a>
+    <a href="/" class="mainmenu">高層建築物一覧に戻る</a>
+  </div>
+</body>
+</html>

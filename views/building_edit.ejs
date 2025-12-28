@@ -1,0 +1,57 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.modelname %></title>
+  <link rel="stylesheet" href="./../../public/style/buildstyle.css">
+</head>
+<body>
+  <h1><%= data.modelname %>の編集</h1>
+  <hr>
+  <form action="/update/<%= data.id - 1 %>" method="POST">
+    <table>
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>データ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>名称</th>
+          <td><input type="text" name="name" value="<%= data.name %>"></td>
+        </tr>
+        <tr>
+          <th>分類</th>
+          <td><input type="text" name="type" value="<%= data.type %>"></td>
+        </tr>
+        <tr>
+          <th>所在国・都市</th>
+          <td><input type="text" name="countrycity" value="<%= data.countrycity %>"></td>
+        </tr>
+        <tr>
+          <th>高さ(メートル単位)</th>
+          <td><input type="text" name="height" value="<%= data.height %>"></td>
+        </tr>
+        <tr>
+          <th>延べ床面積(平方メートル単位)</th>
+          <td><input type="text" name="floorarea" value="<%= data.floorarea %>"></td>
+        </tr>
+        <tr>
+          <th>竣工年</th>
+          <td><input type="text" name="completion" value="<%= data.completion %>"></td>
+        </tr>
+        <tr>
+          <th>画像ファイル名</th>
+          <td><input type="text" name="image" value="<%= data.image %>"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="submitlinkbox">
+      <input type="submit" value="<%= data.name %>の更新">
+      <input type="reset" value="リセット">
+      <a href="/<%= id %>" class="mainmenu"><%= data.name %>の詳細に戻る</a>
+    </div>
+  </form>
+</body>
+</html>

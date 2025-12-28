@@ -1,0 +1,33 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>軍用機</title>
+  <link rel="stylesheet" href="./../public/style/airstyle.css">
+</head>
+<body>
+  <h1>Military Airplane List</h1>
+  <hr>
+  <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>型式・愛称</th>
+            <th>分類</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% let number = 0 %>
+            <% for( let row of data ) { %>
+                <tr>
+                    <td><%= row.id %></td>
+                    <td><a href="/<%= number %>"><%= row.modelname %></a></td>
+                    <td><%= row.airclass %></td>
+                </tr>
+            <% number += 1 %>
+        <% } %>
+    </tbody>
+  </table>
+  <a  href="/create" class="linkplace">軍用機データの追加</a>
+</body>
+</html>

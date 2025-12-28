@@ -1,0 +1,139 @@
+body{
+    background-color: black;/*背景色決定*/
+}
+
+h1{
+    text-align: center;/*文字を中央に表示*/
+    color: white;
+    font-size: 30px;
+    margin: 10px;
+    font-style: italic;
+    text-shadow: 2px 2px 10px rgb(0, 200, 255);/*文字に影を入れる*/
+}
+
+p{
+    font-size: 20px;
+    margin: 10px;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgb(0, 200, 255);/*文字に影を入れる*/
+}
+
+table{
+    border: 3px solid white;/*表の枠線を設定*/
+    border-collapse: separate;/*表のセル間に空白を入れる設定*/
+    border-spacing: 0px;/*表のセル間入った空白を0にする*/
+    border-radius: 20px;
+    font-size: 15px;
+    overflow: hidden;/*thtdのはみ出しを隠す*/
+    text-align: center;/*セル内文字を中央揃え*/
+    margin: auto;/*表を中央に設定*/
+}
+
+th,td{
+    border: 1px solid white;
+    border-collapse: collapse;
+    color:white;
+    padding:20px 10px;/*枠線からの空白(x軸　y軸)*/
+}
+
+a{
+    color: rgb(0, 200, 255);
+    text-decoration: none; /*リンクを下線を入れるか否か*/
+    display: inline-block; /* 横並びにしつつ大きさを調整できる．これがないとtransitionがうまく動かない */
+    font-weight: bold;/*太文字にする*/
+    transition: transform 0.3s ease; /* 0.3秒かけて滑らかに変化 */
+}
+
+/*a:visited{
+    color: rgb(105, 10, 200);
+    text-decoration: underline;
+}*/
+
+a:hover{
+    color: white;
+    text-decoration: underline;
+    transform: scale(1.2); /* 1.2倍に拡大 */
+}
+
+hr{
+    border: none;
+    height: 1px;
+    margin: 10px;
+    background-image: linear-gradient(to right, white, black);
+}
+
+.linkplace{
+    position: fixed;  /* 画面上の位置を固定する */
+    bottom: 30px;     /* 下から30px */
+    right: 30px;      /* 右から30px */
+  
+    color: rgb(0, 200, 255);
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid rgb(0, 200, 255);
+    border-radius: 10px;
+}
+
+.submitlinkbox{
+    display: flex;             /* Flexboxを有効化 */
+    justify-content: center;   /* 水平方向に中央揃え */
+    gap: 30px;                 /* ボタン同士の間隔を30px空ける */
+    margin-top: 30px;          /* 上の表との隙間 */
+}
+
+input[type="text"]{
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid white;
+    border-radius: 5px;
+    color:white;
+    outline: none;                        /* クリック時の青い枠を消す */
+    font-family: monospace;               /* フォントを等幅にしてデジタル感を出す */
+}
+
+input[type="submit"],.edit{
+    background-color: black;
+    color:rgb(0, 200, 255);
+    padding: 10px 20px;
+    margin: 10px 10px;
+    border-radius: 15px;
+    border: 1px solid rgb(0, 200, 255);
+    font-size: 15px;
+}
+
+input[type="reset"],.delete,button[type="submit"]{
+    background-color: black;
+    color:rgb(200, 16, 16);
+    padding: 10px 20px;
+    margin: 10px 10px;
+    border-radius: 15px;
+    border: 1px solid rgb(200, 16, 16);
+    font-size: 15px;
+}
+
+.mainmenu{
+    background-color: black;
+    color:rgb(180, 20, 255);
+    padding: 10px 20px;
+    margin: 10px 10px;
+    border-radius: 15px;
+    border: 1px solid rgb(180, 20, 255);
+    font-size: 15px;
+}
+
+.image{
+    text-align: center;      /* 中身（画像）を中央に配置 */
+    margin: 30px auto;       /* 上下に隙間、左右は自動（中央寄せ） */
+    color: white;
+}
+
+.image img{
+    max-width: 800px;        /* 最大でも800pxまで（大きすぎ防止） */
+    width: 90%;              /* スマホなどでは画面の90%の幅に */
+    height: auto;            /* 高さは自動で比率を維持 */
+    border: 2px solid rgb(0, 200, 255); /*枠線設定*/
+    box-shadow: 0 0 40px rgb(0, 200, 255); /*背景を光らせる*/
+    border-radius: 10px;     /* 角を少し丸くする */
+    display: inline-block;   /* 中央寄せ(text-align)を使うため*/
+    margin-bottom: 20px;/*下側に余白を作る*/
+}

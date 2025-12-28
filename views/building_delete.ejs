@@ -1,0 +1,18 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %>のデータ削除の確認</title>
+  <link rel="stylesheet" href="./../../public/style/airstyle.css">
+</head>
+<body>
+  <h1><%= data.name %>を削除しますか</h1>
+  <hr>
+  <p>一度消すと二度と復元できません</p>
+  <form action="/delete/<%= id %>" method="POST">
+    <div class="submitlinkbox">
+      <button type="submit">削除する</button>
+      <a href="/<%= id %>" class="mainmenu"><%= data.name %>の詳細に戻る</a>
+    </div>
+  </form>
+</body>
