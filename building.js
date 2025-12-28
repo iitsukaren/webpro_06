@@ -38,8 +38,9 @@ app.get("/delete/:number", (req, res) => {
 app.post("/delete/:number", (req, res) => {
   const number = req.params.number;
   building.splice(number, 1);
-  const deletenumber = parseInt(req.params.number) + 1; //parseIntで文字列状態の数字を基数の整数に変換している
-  console.log(`ID${deletenumber}delete!`);//バックコートと${}で{}内の変数を文字列に組み込める
+  /*const deletenumber = parseInt(req.params.number) + 1; //parseIntで文字列状態の数字を基数の整数に変換している
+  console.log(`ID${deletenumber}delete!`);//バックコートと${}で{}内の変数を文字列に組み込める*/
+  console.log( building );
   res.redirect('/' );
 });
 
